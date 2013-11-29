@@ -9,7 +9,7 @@ Introduction
 LittleD provides a SQL frontend to manage data under the relational model.
 This project targets devices of about the same capabilities as the Arduino
 Mega2560. In a nutshell, the system supports the creation of tables,
-the data insertion, and SELECT-FROM-WHERE syntax. Error messages are
+data insertion, and SELECT-FROM-WHERE syntax. Error messages are
 supported but not mandatory. A simple configuration header file dictates
 which features are compiled in so the database's codespace footprint
 can be controlled according to application needs. All code except
