@@ -1,0 +1,43 @@
+###############################################################################
+# Author: Graeme Douglas
+# Things for git to ignore.
+# 
+###############################################################################
+
+## All binary directories
+bin/
+
+## In general, ignore html/latex folders in doxygen directory.
+doc/doxygen/html
+doc/doxygen/latex
+
+## Ignore contikified directory.
+contikify
+
+## Ignore annoying eclipse files for those of us that use such software.
+.settings
+.project
+
+## Ignore contiki example dir, except what I force add.
+contiki_ex
+
+## General Files
+# Compiled files
+*~
+*.com
+*class
+*.dll
+*.exe
+*.so
+*.o
+
+# Annoying OS files
+.DS_Store*
+Icon?
+ethumbs.db
+Thumbs.db
+*bak
+
+# Annoying vim files
+*.swp
+*.swo
