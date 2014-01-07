@@ -25,7 +25,7 @@
 
 /*** Methods for retrieving information from a tuple. */
 /* Retrieve an db_int from a tuple given its attribute name. */
-db_int getintbyname(tuple_t *tp, char *attr_name, relation_header_t *hp)
+db_int getintbyname(db_tuple_t *tp, char *attr_name, relation_header_t *hp)
 {
 	db_uint8 offset = getoffsetbyname(hp, attr_name);
 	/* Convert char pointer to db_int pointer so we can return db_int
@@ -34,7 +34,7 @@ db_int getintbyname(tuple_t *tp, char *attr_name, relation_header_t *hp)
 }
 
 /* Retrieve an db_int from a tuple given its attribute position. */
-db_int getintbypos(tuple_t *tp, db_int pos, relation_header_t *hp)
+db_int getintbypos(db_tuple_t *tp, db_int pos, relation_header_t *hp)
 {
 	db_uint8 offset = getoffsetbypos(hp, pos);
 
@@ -44,7 +44,7 @@ db_int getintbypos(tuple_t *tp, db_int pos, relation_header_t *hp)
 }
 
 /* Retrieve a string from a tuple given its attribute name. */
-char* getstringbyname(tuple_t *tp, char *attr_name, relation_header_t *hp)
+char* getstringbyname(db_tuple_t *tp, char *attr_name, relation_header_t *hp)
 {
 	db_uint8 offset = getoffsetbyname(hp, attr_name);
 
@@ -53,7 +53,7 @@ char* getstringbyname(tuple_t *tp, char *attr_name, relation_header_t *hp)
 }
 
 /* Retrieve a string from a tuple given its attribute position */
-char* getstringbypos(tuple_t *tp, db_int pos, relation_header_t *hp)
+char* getstringbypos(db_tuple_t *tp, db_int pos, relation_header_t *hp)
 {
 	db_uint8 offset = getoffsetbypos(hp, pos);
 	/* Convert char pointer to db_int pointer so we can return db_int
@@ -62,7 +62,7 @@ char* getstringbypos(tuple_t *tp, db_int pos, relation_header_t *hp)
 }
 
 /* Retrieve a void pointer from attribute at position pos. */
-void* getvoidpbypos(tuple_t *tp, db_int pos, relation_header_t *hp)
+void* getvoidpbypos(db_tuple_t *tp, db_int pos, relation_header_t *hp)
 {
 	db_uint8 offset = getoffsetbypos(hp, pos);
 
@@ -70,7 +70,7 @@ void* getvoidpbypos(tuple_t *tp, db_int pos, relation_header_t *hp)
 	return (void*)(&(tp->bytes[(db_int)offset]));
 }
 
-void copytuplebytes(tuple_t *to, tuple_t *from, int tstart, int fstart,
+void copytuplebytes(db_tuple_t *to, db_tuple_t *from, int tstart, int fstart,
 		int howmany)
 {
 	howmany += tstart;
@@ -79,7 +79,7 @@ void copytuplebytes(tuple_t *to, tuple_t *from, int tstart, int fstart,
 		to->bytes[tstart] = from->bytes[fstart];
 	}
 }
-void copytupleisnull(tuple_t *to, tuple_t *from, int tstart, int fstart,
+void copytupleisnull(db_tuple_t *to, db_tuple_t *from, int tstart, int fstart,
 		int howmany)
 {
 	howmany += tstart;
@@ -90,7 +90,7 @@ void copytupleisnull(tuple_t *to, tuple_t *from, int tstart, int fstart,
 }
 
 /* Create a tuple */
-db_int init_tuple(tuple_t *tp, db_uint8 tuple_size, db_uint8 num_attr,
+db_int init_tuple(db_tuple_t *tp, db_uint8 tuple_size, db_uint8 num_attr,
 		db_query_mm_t *mmp)
 {
 	/* Determine minimum number of bytes needed to create a bit vector
@@ -114,7 +114,7 @@ db_int init_tuple(tuple_t *tp, db_uint8 tuple_size, db_uint8 num_attr,
 }
 
 /* Destroy a tuple, specifically its bytes */
-db_int close_tuple(tuple_t *tp, db_query_mm_t *mmp)
+db_int close_tuple(db_tuple_t *tp, db_query_mm_t *mmp)
 {
 	DB_QMM_BFREE(mmp, tp->bytes);
 	DB_QMM_BFREE(mmp, tp->isnull);

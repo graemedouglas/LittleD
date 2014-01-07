@@ -37,7 +37,7 @@
 
 /* Compares two tuples _FROM THE SAME RELATION_ to determine which comes
  * before the other, in either minimum or maximum order.*/
-db_int8 cmp_tuple(tuple_t* a, tuple_t* b, relation_header_t *hp_a,
+db_int8 cmp_tuple(db_tuple_t* a, db_tuple_t* b, relation_header_t *hp_a,
 		relation_header_t *hp_b, db_eet_t *order_exprs_a,
 		db_eet_t *order_exprs_b, db_int num_expr, db_uint8 *order,
 		db_uint8 strictComp, db_query_mm_t *mmp)
@@ -199,11 +199,11 @@ db_int8 cmp_tuple(tuple_t* a, tuple_t* b, relation_header_t *hp_a,
 }
 
 /* Return the next tuple in sorted order. */
-db_int next_inorder_tuple(tuple_t *next_tp, tuple_t *previous_tp, db_int *next_count,
+db_int next_inorder_tuple(db_tuple_t *next_tp, db_tuple_t *previous_tp, db_int *next_count,
 		db_op_base_t *src_op, db_eet_t *order_exprs,
 		db_uint8 num_expr, db_uint8 *order, db_query_mm_t *mmp)
 {
-	tuple_t t;	/* Temporary tuple used to run through the operator. */
+	db_tuple_t t;	/* Temporary tuple used to run through the operator. */
 	init_tuple(&t, src_op->header->tuple_size, src_op->header->num_attr, mmp);
 	//*previous_tp = *next_tp;
 	rewind_dbop(src_op, mmp);

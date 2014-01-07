@@ -45,7 +45,7 @@ void test_aggregate_1(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -137,7 +137,7 @@ void test_aggregate_2(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -228,7 +228,7 @@ void test_aggregate_3(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t havingExpr;
 	db_eetnode_attr_t attrNode;
@@ -310,7 +310,7 @@ void test_aggregate_4(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -430,7 +430,7 @@ void test_aggregate_5(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -543,7 +543,7 @@ void test_aggregate_6(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -656,7 +656,7 @@ void test_aggregate_7(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -776,7 +776,7 @@ void test_aggregate_8(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -894,7 +894,7 @@ void test_aggregate_9(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -1005,7 +1005,7 @@ void test_aggregate_10(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -1102,7 +1102,7 @@ void test_aggregate_11(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -1244,7 +1244,7 @@ void test_aggregate_12(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -1396,7 +1396,7 @@ void test_aggregate_13(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -1548,7 +1548,7 @@ void test_aggregate_14(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -1740,7 +1740,7 @@ void test_aggregate_15(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -1926,7 +1926,7 @@ void test_aggregate_16(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -2146,7 +2146,7 @@ void test_aggregate_17(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -2332,7 +2332,7 @@ void test_aggregate_18(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -2518,7 +2518,7 @@ void test_aggregate_19(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -2704,7 +2704,7 @@ void test_aggregate_20(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -2890,7 +2890,7 @@ void test_aggregate_21(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -3076,7 +3076,7 @@ void test_aggregate_22(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -3262,7 +3262,7 @@ void test_aggregate_23(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -3448,7 +3448,7 @@ void test_aggregate_24(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -3634,7 +3634,7 @@ void test_aggregate_26(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -3800,7 +3800,7 @@ void test_aggregate_27(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -3956,7 +3956,7 @@ void test_aggregate_28(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -4049,7 +4049,7 @@ void test_aggregate_29(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -4179,7 +4179,7 @@ void test_aggregate_30(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t oneGroupExpr[1];
 	db_eet_t havingExpr;
@@ -4299,7 +4299,7 @@ void test_aggregate_31(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -4480,7 +4480,7 @@ void test_aggregate_32(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -4661,7 +4661,7 @@ void test_aggregate_33(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -4830,7 +4830,7 @@ void test_aggregate_34(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -5011,7 +5011,7 @@ void test_aggregate_35(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -5192,7 +5192,7 @@ void test_aggregate_36(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -5373,7 +5373,7 @@ void test_aggregate_37(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -5530,7 +5530,7 @@ void test_aggregate_38(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -5719,7 +5719,7 @@ void test_aggregate_39(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -5909,7 +5909,7 @@ void test_aggregate_40(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;
@@ -6099,7 +6099,7 @@ void test_aggregate_41(CuTest *tc)
 	
 	scan_t scan;
 	aggregate_t aggr;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t threeExpr[3];
 	db_eet_t twoGroupExpr[2];
 	db_eet_t havingExpr;

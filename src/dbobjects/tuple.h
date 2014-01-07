@@ -48,7 +48,7 @@ extern "C" {
 
 /* Tuple structure. */
 /**
-@struct tuple_t
+@struct db_tuple_t
 @brief 		In-memory representation of a tuple.
 @details	A tuple is just a sequence of bytes that stores information,
 		in addition to a bit-array signalling which attributes are
@@ -68,7 +68,7 @@ typedef struct
 					     the values for the tuple.
 					*/
 	/*@}*/
-} tuple_t;
+} db_tuple_t;
 
 /*** Methods for retrieving information from a tuple. */
 /* Retrieve a db_int from a tuple given its attribute name. */
@@ -81,7 +81,7 @@ typedef struct
 @param		hp		Pointer to schema information for the relation.
 @return		The value of the attribute whose name is @c attr_name.
 */
-db_int getintbyname(tuple_t *tp,	/* Pointer to tuple structure. */
+db_int getintbyname(db_tuple_t *tp,	/* Pointer to tuple structure. */
 		char *attr_name,	/* Name of attribute to return value
 					   of. */
 		relation_header_t *hp);	/* Pointer to relation header
@@ -98,7 +98,7 @@ db_int getintbyname(tuple_t *tp,	/* Pointer to tuple structure. */
 @return		The integer value of the attribute whose ordered position is 
 		@c pos.
 */
-db_int getintbypos(tuple_t *tp,		/* Pointer to tuple structure. */
+db_int getintbypos(db_tuple_t *tp,		/* Pointer to tuple structure. */
 		db_int pos,		/* The position of the attribute
 					   to return the value of. */
 		relation_header_t *hp);	/* Pointer to relation header
@@ -114,7 +114,7 @@ db_int getintbypos(tuple_t *tp,		/* Pointer to tuple structure. */
 @param		hp		Pointer to schema information for the relation.
 @return		The string value of the attribute whose name is @c attr_name.
 */
-char* getstringbyname(tuple_t *tp,	/* Pointer to tuple structure. */
+char* getstringbyname(db_tuple_t *tp,	/* Pointer to tuple structure. */
 		char *attr_name,	/* Name of attribute to return value
 					   of. */
 		relation_header_t *hp);	/* Pointer of relation header
@@ -130,7 +130,7 @@ char* getstringbyname(tuple_t *tp,	/* Pointer to tuple structure. */
 @param		hp		Pointer to schema information for the relation.
 @return		The string value of the attribute whose name is @c pos.
 */
-char* getstringbypos(tuple_t *tp,	/* Pointer to tuple structure. */
+char* getstringbypos(db_tuple_t *tp,	/* Pointer to tuple structure. */
 		db_int pos,		/* position of the attribute to return
 					   the value of. */
 		relation_header_t *hp);	/* Pointer to relation header
@@ -146,7 +146,7 @@ char* getstringbypos(tuple_t *tp,	/* Pointer to tuple structure. */
 @param		hp		Pointer to schema information for the relation.
 @return		The string value of the attribute whose name is @c pos.
 */
-void* getvoidpbypos(tuple_t *tp,	/* Pointer to tuple structure. */
+void* getvoidpbypos(db_tuple_t *tp,	/* Pointer to tuple structure. */
 		db_int pos,		/* Position of the attribute to
 					   get the pointer of. */
 		relation_header_t *hp);	/* Pointer of relation header
@@ -160,8 +160,8 @@ void* getvoidpbypos(tuple_t *tp,	/* Pointer to tuple structure. */
 @param		fstart	The first byte to read.
 @param		howmany	How many bytes to copy.
 */
-void copytuplebytes(tuple_t *to,
-		tuple_t *from,
+void copytuplebytes(db_tuple_t *to,
+		db_tuple_t *from,
 		int tstart,
 		int fstart,
 		int howmany);
@@ -174,8 +174,8 @@ void copytuplebytes(tuple_t *to,
 @param		fstart	The first byte to read.
 @param		howmany	How many bytes to copy.
 */
-void copytupleisnull(tuple_t *to,
-		tuple_t *from,
+void copytupleisnull(db_tuple_t *to,
+		db_tuple_t *from,
 		int tstart,
 		int fstart,
 		int howmany);
@@ -197,7 +197,7 @@ void copytupleisnull(tuple_t *to,
 				@c malloc(..).
 @return		1 on success, -1 otherwise.
 */
-db_int init_tuple(tuple_t *tp,		/* Pointer to tuple structure. */
+db_int init_tuple(db_tuple_t *tp,		/* Pointer to tuple structure. */
 		db_uint8 tuple_size,	/* The number of bytes to make the
 					   tuple. */
 		db_uint8 num_attr,	/* The number of attributes in the
@@ -214,7 +214,7 @@ db_int init_tuple(tuple_t *tp,		/* Pointer to tuple structure. */
 				to use @c free(..).
 @return		1 on success, -1 otherwise.
 */
-db_int close_tuple(tuple_t *tp, db_query_mm_t *mmp);
+db_int close_tuple(db_tuple_t *tp, db_query_mm_t *mmp);
 
 #ifdef __cplusplus
 }

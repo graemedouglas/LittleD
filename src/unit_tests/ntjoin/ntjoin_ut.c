@@ -45,7 +45,7 @@ void test_ntjoin_1(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 1: Join relaiton 3 with itself, on the first attribute.");
@@ -144,7 +144,7 @@ void test_ntjoin_2(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 2: Join relaiton 3 with itself, where left's first attribute = right's third attribute.");
@@ -224,7 +224,7 @@ void test_ntjoin_3(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	puts("********************************************************************************");
 	puts("Test 3: Do a cross product of test_rel3 with itself (join condition is true).");
 
@@ -359,7 +359,7 @@ void test_ntjoin_4(CuTest *tc)
 	db_int intResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 4: Join relaiton 3 with itself, where the join condition is false");
@@ -413,7 +413,7 @@ void test_ntjoin_5(CuTest *tc)
 	scan_t lscan, rscan, rrscan;
 	ntjoin_t ntjoin;
 	ntjoin_t ntjoin2;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 5: Join relaiton 3 with itself twice, both cross products.");
@@ -710,7 +710,7 @@ void test_ntjoin_6(CuTest *tc)
 	db_int intResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 6: Join fruit_stock_1 with fruit_stock_2 on first attribute of each.");
@@ -796,7 +796,7 @@ void test_ntjoin_7(CuTest *tc)
 	db_int intResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 7: Join tenattrtable to tenattrtable on second attribute of each.");
@@ -878,7 +878,7 @@ void test_ntjoin_8(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 8: Do a cross product of test_rel3 with itself (eet = NULL).");
@@ -1000,7 +1000,7 @@ void test_ntjoin_9(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	ntjoin_t ntjoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 9: Do a cross product of test_rel3 with itself, where there is no join condition (eet.nodes = NULL).");

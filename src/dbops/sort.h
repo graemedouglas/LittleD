@@ -68,7 +68,7 @@ db_int rewind_sort(sort_t *sp, db_query_mm_t *mmp);
 @brief		Retrieve the next sorted tuple from a sort operator.
 @see		For more information, reference @ref next.
 */
-db_int next_sort(sort_t *sp, tuple_t *tp, db_query_mm_t *mmp);
+db_int next_sort(sort_t *sp, db_tuple_t *tp, db_query_mm_t *mmp);
 
 /* Close the sort operator. */
 /**

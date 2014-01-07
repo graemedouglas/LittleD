@@ -66,7 +66,7 @@ db_int rewind_ntjoin(ntjoin_t *jp, db_query_mm_t *mmp);
 @brief		Produce the next tuple from a nested-tuple join operator.
 @see		For more information, please reference @ref next.
 */
-db_int next_ntjoin(ntjoin_t *jp, tuple_t *next_tp, db_query_mm_t *mmp);
+db_int next_ntjoin(ntjoin_t *jp, db_tuple_t *next_tp, db_query_mm_t *mmp);
 
 /* Close the selection operator. */
 /**

@@ -98,18 +98,18 @@ db_int rewind_ntjoin(ntjoin_t *jp, db_query_mm_t *mmp)
 			lt <- next tuple from lchild
 			rewind rchild
 */
-db_int next_ntjoin(ntjoin_t *jp, tuple_t *next_tp, db_query_mm_t *mmp)
+db_int next_ntjoin(ntjoin_t *jp, db_tuple_t *next_tp, db_query_mm_t *mmp)
 {
 	/* Create necessary result variable. */
 	db_int result = 0, retval;
-	tuple_t rt;
+	db_tuple_t rt;
 	init_tuple(&rt, jp->rchild->header->tuple_size, jp->rchild->header->num_attr, mmp);
 	
 	/* Build arrays to be passed to eet evaluation engine. */
 	relation_header_t *hpa[2];
 	hpa[0] = jp->lchild->header;
 	hpa[1] = jp->rchild->header;
-	tuple_t *tpa[2];
+	db_tuple_t *tpa[2];
 	tpa[0] = &(jp->lt);
 	tpa[1] = &rt;
 	db_int looper;

@@ -172,24 +172,24 @@ db_int rewind_osijoin(osijoin_t *jp, db_query_mm_t *mmp)
 	return 1;
 }
 
-db_int next_osijoin(osijoin_t *jp, tuple_t *next_tp, db_query_mm_t *mmp)
+db_int next_osijoin(osijoin_t *jp, db_tuple_t *next_tp, db_query_mm_t *mmp)
 {
 	/* Create necessary result variable. */
 	db_int result = 0;
 	
-	tuple_t indexedtuple;
+	db_tuple_t indexedtuple;
 	
 	/* Build arrays to be passed to eet evaluation engine.
 	   Left = 0, Right = 1. */
 	relation_header_t *hpa[2];
-	tuple_t *tpa[2];
+	db_tuple_t *tpa[2];
 	
 	hpa[0] = jp->lchild->header;
 	hpa[1] = jp->rchild->header;
 	
 	// TODO: Reduce memory footprint.
 	db_op_base_t *indexed, *unindexed;
-	tuple_t *it;
+	db_tuple_t *it;
 	it = &indexedtuple;
 	
 	if (DB_OSIJOIN_RINDEXED(jp->bitinfo))

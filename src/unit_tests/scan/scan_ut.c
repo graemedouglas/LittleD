@@ -32,7 +32,7 @@ void test_scan_0(CuTest *tc)
 	
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "test_rel1", &mm));
-	tuple_t next;
+	db_tuple_t next;
 	init_tuple(&next, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	db_int result;
 	db_int attr;
@@ -109,7 +109,7 @@ void test_scan_1(CuTest *tc)
 	
 	scan_t s;
 	init_scan(&s, "test_rel2", &mm);
-	tuple_t next;
+	db_tuple_t next;
 	init_tuple(&next, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	db_int result;
 	
@@ -152,7 +152,7 @@ void test_scan_2(CuTest *tc)
 	init_query_mm(&mm, segment, 2000);
 	
 	scan_t s;
-	tuple_t next;
+	db_tuple_t next;
 	db_int result;
 	db_int attr;
 	char* str_attr;
@@ -227,7 +227,7 @@ void test_scan_3(CuTest *tc)
 	init_query_mm(&mm, segment, 2000);
 	
 	scan_t s;
-	tuple_t next;
+	db_tuple_t next;
 	
 	puts("*************************************************************");
 	puts("Testing scanning of fruit_stock_2 (NULL scanning).\n");
@@ -266,7 +266,7 @@ void test_scan_4(CuTest *tc)
 	init_query_mm(&mm, segment, 2000);
 	
 	scan_t s;
-	tuple_t next;
+	db_tuple_t next;
 	
 	puts("*************************************************************");
 	puts("Testing scanning of tenattrtable (NULL scanning).\n");

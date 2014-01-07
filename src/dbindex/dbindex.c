@@ -45,7 +45,7 @@ db_int close_index(db_index_t *indexp)
 }
 
 db_int scan_find(scan_t *sp, db_uint8 indexon, db_eet_t *searchfor,
-		tuple_t *comparator_tp, relation_header_t *comparator_hp,
+		db_tuple_t *comparator_tp, relation_header_t *comparator_hp,
 		db_query_mm_t *mmp)
 {
 	db_index_offset_t offset =
@@ -70,7 +70,7 @@ db_int scan_find(scan_t *sp, db_uint8 indexon, db_eet_t *searchfor,
 // FIXME: For now, this assumes equality for each of the expressions.
 db_index_offset_t db_index_getoffset(scan_t *sp, db_uint8 indexon,
 				db_eet_t *searchfor,
-				tuple_t *comparator_tp,
+				db_tuple_t *comparator_tp,
 				relation_header_t *comparator_hp,
 				db_query_mm_t *mmp)
 {
@@ -106,7 +106,7 @@ db_index_offset_t db_index_getoffset(scan_t *sp, db_uint8 indexon,
 		for (result = 0; result < sp->idx_meta_data.num_expr[indexon]; ++result)
 			order[result] = DB_TUPLE_ORDER_ASC;
 		
-		tuple_t temp;
+		db_tuple_t temp;
 		init_tuple(&temp, sp->base.header->tuple_size, sp->base.header->num_attr, mmp);
 		rewind_scan(sp, mmp);
 		

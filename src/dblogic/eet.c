@@ -867,7 +867,7 @@ db_int eet_evaloporfunc(db_eetnode_t **valuesp, db_uint8 type, db_uint8 numvalue
 }
 
 // TODO: Change tp, hp to single pointers if I can.
-db_int evaluate_eet(db_eet_t *exprp, void *rp, tuple_t **tp, relation_header_t **hp, db_uint8 start_from, db_query_mm_t *mmp)
+db_int evaluate_eet(db_eet_t *exprp, void *rp, db_tuple_t **tp, relation_header_t **hp, db_uint8 start_from, db_query_mm_t *mmp)
 {
 	db_eetnode_t	*stack = db_qmm_balloc(mmp, 0);
 	db_eetnode_t	*stack_top = stack;

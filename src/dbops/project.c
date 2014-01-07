@@ -51,9 +51,9 @@ db_int rewind_project(project_t *pp, db_query_mm_t *mmp)
    This assumes a properly initialized tuple with apropriate number of bytes
    is passed in.
 */
-db_int next_project(project_t *pp, tuple_t *next_tp, db_query_mm_t *mmp)
+db_int next_project(project_t *pp, db_tuple_t *next_tp, db_query_mm_t *mmp)
 {
-	tuple_t temp_t;
+	db_tuple_t temp_t;
 	init_tuple(&temp_t, pp->child->header->tuple_size, pp->child->header->num_attr, mmp);
 	
 	/* Get the next tuple from the child */
@@ -100,7 +100,7 @@ db_int next_project(project_t *pp, tuple_t *next_tp, db_query_mm_t *mmp)
 			else if (pp->base.header->types[k] == DB_INT)
 			{
 				db_int value;
-				tuple_t *temp_tp = &temp_t;
+				db_tuple_t *temp_tp = &temp_t;
 				switch (evaluate_eet(&(pp->exprs[i]), &value, &temp_tp,
 					&(pp->child->header), 0, mmp))
 				{
@@ -124,7 +124,7 @@ db_int next_project(project_t *pp, tuple_t *next_tp, db_query_mm_t *mmp)
 			{
 				db_int j;
 				char *value;
-				tuple_t *temp_tp = &temp_t;
+				db_tuple_t *temp_tp = &temp_t;
 				switch (evaluate_eet(&(pp->exprs[i]), &value, &temp_tp,
 					&(pp->child->header), 0, mmp))
 				{

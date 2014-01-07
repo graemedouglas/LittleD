@@ -39,7 +39,7 @@ void test_sort_1(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;
@@ -98,7 +98,7 @@ void test_sort_2(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;
@@ -149,7 +149,7 @@ void test_sort_3(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;
@@ -225,7 +225,7 @@ void test_sort_4(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;
@@ -301,7 +301,7 @@ void test_sort_5(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;
@@ -378,7 +378,7 @@ void test_sort_6(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_uint8 twoOrder[2];
 	db_eetnode_attr_t attrNode;
@@ -465,7 +465,7 @@ void test_sort_7(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_uint8 twoOrder[2];
 	db_eetnode_attr_t attrNode;
@@ -552,7 +552,7 @@ void test_sort_8(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;
@@ -647,7 +647,7 @@ void test_sort_9(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;
@@ -739,7 +739,7 @@ void test_sort_10(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_uint8 twoOrder[2];
 	db_eetnode_attr_t attrNode;
@@ -847,7 +847,7 @@ void test_sort_11(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t twoExpr[2];
 	db_uint8 twoOrder[2];
 	db_eetnode_attr_t attrNode;
@@ -980,7 +980,7 @@ void test_sort_12(CuTest *tc)
 	
 	scan_t scan;
 	sort_t sort;
-	tuple_t t;
+	db_tuple_t t;
 	db_eet_t oneExpr[1];
 	db_uint8 oneOrder[1];
 	db_eetnode_attr_t attrNode;

@@ -162,7 +162,7 @@ db_int rewind_aggregate(aggregate_t *ap, db_query_mm_t *mmp)
    that we are not just passing in the whole aggregate pointer only,
    but here we are attempting to abstract the process for both
    projecting expressions and HAVING clauses. */
-db_int aggr_prepare_expressions(aggregate_t *ap, db_eet_t *exprs, db_int8 **aggr_locs, db_uint8 num_expr, tuple_t *src_tp, tuple_t *tp, db_query_mm_t *mmp)
+db_int aggr_prepare_expressions(aggregate_t *ap, db_eet_t *exprs, db_int8 **aggr_locs, db_uint8 num_expr, db_tuple_t *src_tp, db_tuple_t *tp, db_query_mm_t *mmp)
 {
 	db_int i, j;
 	/* Evaluate non-aggregate values and setup temporary values for aggregate functions. */
@@ -312,7 +312,7 @@ db_int aggr_prepare_expressions(aggregate_t *ap, db_eet_t *exprs, db_int8 **aggr
 }
 
 /* Return the next tuple from the aggregate operator. */
-db_int next_aggregate(aggregate_t *ap, tuple_t *tp, db_query_mm_t *mmp)
+db_int next_aggregate(aggregate_t *ap, db_tuple_t *tp, db_query_mm_t *mmp)
 {
 	if (ap == NULL)
 		return -1;
@@ -336,7 +336,7 @@ db_int next_aggregate(aggregate_t *ap, tuple_t *tp, db_query_mm_t *mmp)
 	}
 	
 	/* Create a temporary tuple for to store child's next tuple in. */
-	tuple_t src_t;
+	db_tuple_t src_t;
 	init_tuple(&src_t, ap->child->header->tuple_size, ap->child->header->num_attr, mmp);
 	
 	/* Initially, mark all attributes as NULL in tuple to return.  This is
@@ -453,7 +453,7 @@ db_int next_aggregate(aggregate_t *ap, tuple_t *tp, db_query_mm_t *mmp)
 						}
 						
 						//printf("starting eet evaluation from: %d\n", (db_int)(ap->aggr_locs[i][j])+1);
-						tuple_t *src_tp = &src_t;
+						db_tuple_t *src_tp = &src_t;
 						db_int retval = evaluate_eet(&(ap->exprs[i]), temp_p, &src_tp, &(ap->child->header), (db_uint8)(ap->aggr_locs[i][j]+1), mmp);
 						
 						if (-1 == retval)
@@ -601,7 +601,7 @@ db_int next_aggregate(aggregate_t *ap, tuple_t *tp, db_query_mm_t *mmp)
 			
 			if (ap->previous_tp == NULL)
 			{
-				ap->previous_tp = DB_QMM_BALLOC(mmp, sizeof(tuple_t));
+				ap->previous_tp = DB_QMM_BALLOC(mmp, sizeof(db_tuple_t));
 				init_tuple(ap->previous_tp,
 					ap->child->header->tuple_size,
 					ap->child->header->num_attr, mmp);
@@ -690,7 +690,7 @@ db_int next_aggregate(aggregate_t *ap, tuple_t *tp, db_query_mm_t *mmp)
 						 (node_type <= DB_EETNODE_FUNC_LENGTH_DBSTRING))
 					{
 						db_int result, retval;
-						tuple_t *src_tp = &src_t;
+						db_tuple_t *src_tp = &src_t;
 						retval = evaluate_eet(&(ap->exprs[i]), &result, &src_tp, &(ap->child->header), 0, mmp);
 						if (-1 == retval)
 						{
@@ -729,7 +729,7 @@ db_int next_aggregate(aggregate_t *ap, tuple_t *tp, db_query_mm_t *mmp)
 					if (aggr_np->aggr_type <= DB_AGGR_LAST)
 					{
 						db_int result, retval;
-						tuple_t *src_tp = &src_t;
+						db_tuple_t *src_tp = &src_t;
 						retval = evaluate_eet(&(ap->exprs[i]), &result, &src_tp, &(ap->child->header), 0, mmp);
 						if (-1 == retval)
 						{

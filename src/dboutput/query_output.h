@@ -74,7 +74,7 @@ char* formatQuery(db_op_base_t *op,
 @returns	The size of the string representing the query.
 */
 db_int sizeQuery(db_op_base_t *op,
-		tuple_t *next_t,
+		db_tuple_t *next_t,
 		db_query_mm_t *mmp);
 
 /**
@@ -87,7 +87,7 @@ db_int sizeQuery(db_op_base_t *op,
 			query results.
 @returns	The formatted tuple.
 */
-char* formatTuple(tuple_t *toprint,
+char* formatTuple(db_tuple_t *toprint,
 		db_op_base_t *op,
 		db_int *widths);
 
@@ -99,7 +99,7 @@ char* formatTuple(tuple_t *toprint,
 @param		widths	The width of each formatted column in the
 			query results.
 */
-void printTuple(tuple_t *toprint,
+void printTuple(db_tuple_t *toprint,
 		db_op_base_t *op,
 		db_int *widths);
 

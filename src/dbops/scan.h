@@ -66,7 +66,7 @@ db_int rewind_scan(scan_t *sp, db_query_mm_t *mmp);
 @brief		Retrieve the next tuple from storage mechanism.
 @see		Reference @ref next for more information.
 */
-db_int next_scan(scan_t *sp, tuple_t *next_tp, db_query_mm_t *mmp);
+db_int next_scan(scan_t *sp, db_tuple_t *next_tp, db_query_mm_t *mmp);
 
 /* Close scan. */
 /**

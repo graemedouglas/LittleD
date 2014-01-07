@@ -58,7 +58,7 @@ db_int numdbintdigits(db_int value)
 }
 
 /* Get the size of the query. */
-db_int sizeQuery(db_op_base_t *op, tuple_t *next_t, db_query_mm_t *mmp)
+db_int sizeQuery(db_op_base_t *op, db_tuple_t *next_t, db_query_mm_t *mmp)
 {
 	db_int* widths = calloc((db_int) (op->header->num_attr), sizeof(db_int));
 	computeWidths(op, widths);
@@ -92,7 +92,7 @@ void printQuery(db_op_base_t *op, db_query_mm_t *mmp)
 
 char* formatQuery(db_op_base_t *op, db_query_mm_t *mmp)
 {
-	tuple_t next_t;
+	db_tuple_t next_t;
 	init_tuple(&next_t, op->header->tuple_size, op->header->num_attr, mmp);
 	db_int i;
 	db_int* widths = calloc((db_int) (op->header->num_attr), sizeof(db_int));
@@ -157,12 +157,12 @@ char* formatQuery(db_op_base_t *op, db_query_mm_t *mmp)
 	return out;
 }
 
-void printTuple(tuple_t *toprint, db_op_base_t *op, db_int *widths)
+void printTuple(db_tuple_t *toprint, db_op_base_t *op, db_int *widths)
 {
 	printf("%s\n", formatTuple(toprint, op, widths));
 }
 
-char* formatTuple(tuple_t *toprint, db_op_base_t *op, db_int *widths)
+char* formatTuple(db_tuple_t *toprint, db_op_base_t *op, db_int *widths)
 {
 	/* For each attribute, print it. */
 	db_int i;

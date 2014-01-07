@@ -52,7 +52,7 @@ void test_dbinsert_1(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -88,7 +88,7 @@ void test_dbinsert_2(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -124,7 +124,7 @@ void test_dbinsert_3(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -160,7 +160,7 @@ void test_dbinsert_4(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -198,7 +198,7 @@ void test_dbinsert_5(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -236,7 +236,7 @@ void test_dbinsert_6(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -276,7 +276,7 @@ void test_dbinsert_7(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -316,7 +316,7 @@ void test_dbinsert_8(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -356,7 +356,7 @@ void test_dbinsert_9(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -396,7 +396,7 @@ void test_dbinsert_10(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -437,7 +437,7 @@ void test_dbinsert_11(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);
@@ -478,7 +478,7 @@ void test_dbinsert_12(CuTest *tc)
 	scan_t s;
 	CuAssertTrue(tc, 1==init_scan(&s, "mytable", &mm));
 	
-	tuple_t t;
+	db_tuple_t t;
 	init_tuple(&t, s.base.header->tuple_size, s.base.header->num_attr, &mm);
 	
 	temp = next_scan(&s, &t, &mm);

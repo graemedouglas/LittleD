@@ -41,7 +41,7 @@ void test_project_0(CuTest *tc)
 	db_eetnode_t *arr_p;
 	db_eetnode_attr_t attrNode;
 	attrNode.base.type = DB_EETNODE_ATTR;
-	tuple_t next_t;
+	db_tuple_t next_t;
 	db_int result;
 	db_int i_attr;
 
@@ -114,7 +114,7 @@ void test_project_1(CuTest *tc)
 	db_eetnode_t *arr_p;
 	db_eetnode_attr_t attrNode;
 	attrNode.base.type = DB_EETNODE_ATTR;
-	tuple_t next_t;
+	db_tuple_t next_t;
 	db_int result;
 	char* s_attr;
 	
@@ -172,7 +172,7 @@ void test_project_2(CuTest *tc)
 	db_eetnode_t *arr_p;
 	db_eetnode_attr_t attrNode;
 	attrNode.base.type = DB_EETNODE_ATTR;
-	tuple_t next_t;
+	db_tuple_t next_t;
 	db_int result;
 	db_int i_attr;
 	
@@ -256,7 +256,7 @@ void test_project_3(CuTest *tc)
 	db_eetnode_t *arr_p;
 	db_eetnode_attr_t attrNode;
 	attrNode.base.type = DB_EETNODE_ATTR;
-	tuple_t next_t;
+	db_tuple_t next_t;
 	db_int result;
 	db_int i_attr;
 	
@@ -345,7 +345,7 @@ void test_project_4(CuTest *tc)
 	db_eetnode_t opNode;
 	db_eetnode_attr_t attrNode;
 	attrNode.base.type = DB_EETNODE_ATTR;
-	tuple_t next_t;
+	db_tuple_t next_t;
 	db_int result;
 	db_int i_attr;
 	

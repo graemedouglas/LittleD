@@ -95,7 +95,7 @@ typedef long db_index_offset_t;
 db_int scan_find(scan_t *sp,
 		db_uint8 indexon,
 		db_eet_t *searchfor,
-		tuple_t *comparator_tp,
+		db_tuple_t *comparator_tp,
 		relation_header_t *comparator_hp,
 		db_query_mm_t *mmp);
 
@@ -118,7 +118,7 @@ db_int scan_find(scan_t *sp,
 db_index_offset_t db_index_getoffset(scan_t *sp,
 				db_uint8 indexon,
 				db_eet_t *searchfor,
-				tuple_t *comparator_tp,
+				db_tuple_t *comparator_tp,
 				relation_header_t *comparator_hp,
 				db_query_mm_t *mmp);
 

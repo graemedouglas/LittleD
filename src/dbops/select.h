@@ -57,7 +57,7 @@ db_int init_select(select_t *sp,
 		reduce to either @c 0 or @c 1 (@c false / @c true).
 @see		For more information, reference @ref next.
 */
-db_int next_select(select_t *sp, tuple_t *next_tp, db_query_mm_t *mmp);
+db_int next_select(select_t *sp, db_tuple_t *next_tp, db_query_mm_t *mmp);
 
 /* Rewind the selection operator. */
 /**

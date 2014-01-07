@@ -46,7 +46,7 @@ db_int rewind_select(select_t *sp, db_query_mm_t *mmp)
 /* Find next tuple that passes the selection condition.
    -This assumes that the evaluation tree will alway s reduce to either 0 or 1
     all tuples. */
-db_int next_select(select_t *sp, tuple_t *next_tp, db_query_mm_t *mmp)
+db_int next_select(select_t *sp, db_tuple_t *next_tp, db_query_mm_t *mmp)
 {
 	/* Create necessary result variable. */
 	db_int result, retval = 0;

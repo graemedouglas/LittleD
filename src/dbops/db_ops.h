@@ -69,7 +69,7 @@ A generic next method that can be called on any operator.
 @returns	@c 0 if no more tuples to return, @c -1 if an error occurs,
 		@c 1 otherwise.
 */
-db_int next(db_op_base_t *op, tuple_t *next_tp, db_query_mm_t *mmp);
+db_int next(db_op_base_t *op, db_tuple_t *next_tp, db_query_mm_t *mmp);
 
 /* A generic rewind method. */
 /**

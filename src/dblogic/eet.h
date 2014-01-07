@@ -394,7 +394,7 @@ db_int subexpr_type_addr(db_eetnode_t *np,
 */
 db_int evaluate_eet(db_eet_t *eet,
 		void* rp,
-		tuple_t **tp,
+		db_tuple_t **tp,
 		relation_header_t **hp,
 		db_uint8 start_from,
 		db_query_mm_t *mmp);

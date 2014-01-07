@@ -45,7 +45,7 @@ void test_osijoin_1(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 1: Join relation 3 with itself, on the first attribute.");
@@ -146,7 +146,7 @@ void test_osijoin_2(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 2: Join relation 3 with itself, where left's first attribute = right's third attribute.");
@@ -226,7 +226,7 @@ void test_osijoin_3(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	puts("********************************************************************************");
 	puts("Test 3: Do a cross product of test_rel3 with itself (join condition is true).");
 
@@ -361,7 +361,7 @@ void test_osijoin_4(CuTest *tc)
 	db_int intResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 4: Join relation 3 with itself, where the join condition is false");
@@ -415,7 +415,7 @@ void test_osijoin_5(CuTest *tc)
 	scan_t lscan, rscan, rrscan;
 	osijoin_t osijoin;
 	osijoin_t osijoin2;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 5: Join relation 3 with itself twice, both cross products.");
@@ -712,7 +712,7 @@ void test_osijoin_6(CuTest *tc)
 	db_int intResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 6: Join fruit_stock_1 with fruit_stock_2 on first attribute of each.");
@@ -798,7 +798,7 @@ void test_osijoin_7(CuTest *tc)
 	db_int intResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 7: Join tenattrtable to tenattrtable on second attribute of each.");
@@ -880,7 +880,7 @@ void test_osijoin_8(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 8: Do a cross product of test_rel3 with itself (eet = NULL).");
@@ -1002,7 +1002,7 @@ void test_osijoin_9(CuTest *tc)
 	char* strResult;
 	scan_t lscan, rscan;
 	osijoin_t osijoin;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 9: Do a cross product of test_rel3 with itself, where there is no join condition (eet.nodes = NULL).");

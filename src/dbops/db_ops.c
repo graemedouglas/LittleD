@@ -34,7 +34,7 @@ db_int8 findindexon(scan_t *sp, db_eetnode_attr_t *attrp)
 }
 
 /* A generic next method that can be called on any operator. */
-db_int next(db_op_base_t *op, tuple_t *next_tp, db_query_mm_t *mmp)
+db_int next(db_op_base_t *op, db_tuple_t *next_tp, db_query_mm_t *mmp)
 {
 	if (op->type == DB_SCAN)
 	{

@@ -158,7 +158,7 @@ db_int rewind_osijoin(osijoin_t *jp, db_query_mm_t *mmp);
 			used to allocate memory for this query.
 @returns	@c 1 if a tuple is computed, @c 0 otherwise.
 */
-db_int next_osijoin(osijoin_t *jp, tuple_t *next_tp, db_query_mm_t *mmp);
+db_int next_osijoin(osijoin_t *jp, db_tuple_t *next_tp, db_query_mm_t *mmp);
 
 /* Close the selection operator. */
 /**

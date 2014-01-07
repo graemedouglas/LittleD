@@ -64,7 +64,7 @@ db_int rewind_sort(sort_t *sp, db_query_mm_t *mmp)
 }
 
 /* Return the next tuple from the sort operator. */
-db_int next_sort(sort_t *sp, tuple_t *tp, db_query_mm_t *mmp)
+db_int next_sort(sort_t *sp, db_tuple_t *tp, db_query_mm_t *mmp)
 {
 	if (sp == NULL)
 		return -1;
@@ -99,7 +99,7 @@ db_int next_sort(sort_t *sp, tuple_t *tp, db_query_mm_t *mmp)
 		case 1:
 			if (sp->previous_tp == NULL)
 			{
-				sp->previous_tp = DB_QMM_BALLOC(mmp, sizeof(tuple_t));
+				sp->previous_tp = DB_QMM_BALLOC(mmp, sizeof(db_tuple_t));
 				init_tuple(sp->previous_tp,
 					sp->base.header->tuple_size,
 					sp->base.header->num_attr, mmp);

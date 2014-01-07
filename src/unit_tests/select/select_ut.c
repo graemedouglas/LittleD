@@ -46,7 +46,7 @@ void test_select_0(CuTest *tc)
 	db_int intResult;
 	scan_t scan;
 	select_t select;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 1: Relation 3, select where first field is 1.");
@@ -116,7 +116,7 @@ void test_select_1(CuTest *tc)
 	db_int intResult;
 	scan_t scan;
 	select_t select;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 2: Relation 3, select where second field is \"linux\".");
@@ -186,7 +186,7 @@ void test_select_2(CuTest *tc)
 	db_int intResult;
 	scan_t scan;
 	select_t select;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 3: Relation 3, select where first field is -14. Should be no such tuples.");
@@ -252,7 +252,7 @@ void test_select_3(CuTest *tc)
 	db_int intResult;
 	scan_t scan;
 	select_t select;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 4: Relation 3, select where first field is 1 or second is \"linux\".");
@@ -349,7 +349,7 @@ void test_select_4(CuTest *tc)
 	db_int intResult;
 	scan_t scan;
 	select_t select;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 5: fruit_stock_2, select where first field is 1 or second is \"Lime\".");
@@ -439,7 +439,7 @@ void test_select_5(CuTest *tc)
 	db_int intResult;
 	scan_t scan;
 	select_t select;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 6: fruit_stock_2, select where first field is 1 or second is \"Canucks\".");
@@ -520,7 +520,7 @@ void test_select_6(CuTest *tc)
 	db_int intResult;
 	scan_t scan;
 	select_t select;
-	tuple_t t;
+	db_tuple_t t;
 	
 	puts("********************************************************************************");
 	puts("Test 7: tenattrtable, select where first attr(0) is null and attr(9) is null.");

@@ -84,7 +84,7 @@ db_int rewind_aggregate(aggregate_t *ap, db_query_mm_t *mmp);
 @brief		Get the next tuple from an aggregate operator.
 @see		next
 */
-db_int next_aggregate(aggregate_t *ap, tuple_t *tp, db_query_mm_t *mmp);
+db_int next_aggregate(aggregate_t *ap, db_tuple_t *tp, db_query_mm_t *mmp);
 
 /* Close the aggregate operator. */
 /**

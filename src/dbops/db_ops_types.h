@@ -196,7 +196,7 @@ typedef struct
 					     query execution tree. */
 	db_op_base_t *rchild;		/**< This operator's right child in the
 					     query execution tree. */
-	tuple_t lt;			/**< The currently considered tuple of
+	db_tuple_t lt;			/**< The currently considered tuple of
 					     of the left child. */
 	db_uint8 lvalid;		/**< A flag that signals if there are
 					     any tuples remaining in the left
@@ -222,7 +222,7 @@ typedef struct
 					     query execution tree. */
 	db_op_base_t *rchild;		/**< This operator's right child in the
 					     query execution tree. */
-	tuple_t ut;			/**< The currently considered tuple of
+	db_tuple_t ut;			/**< The currently considered tuple of
 					     of the unindexed child. */
 	db_uint8 bitinfo;		/**< Bit information pertinent to
 					     the join.
@@ -250,7 +250,7 @@ typedef struct
 	db_op_base_t base;		/**< The supertype of this struct. */
 	db_op_base_t *child;		/**< Pointer to this operator's child
 					     in the query exectuion tree. */
-	tuple_t *previous_tp;		/**< Pointer to a copy of the previous
+	db_tuple_t *previous_tp;		/**< Pointer to a copy of the previous
 					     tuple returned by this operator.
 					*/
 	db_int next_count;		/**< The number of duplicate tuples
@@ -290,7 +290,7 @@ typedef struct
 	db_op_base_t base;		/**< The base type of this struct. */
 	db_op_base_t *child;		/**< This operator's child in the
 					     query execution tree. */
-	tuple_t *previous_tp;		/**< Pointer to a copy of the previous
+	db_tuple_t *previous_tp;		/**< Pointer to a copy of the previous
 					     tuple aggregated on.  FOR INTERNAL
 					     USE ONLY.
 					*/

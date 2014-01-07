@@ -97,7 +97,7 @@ db_int rewind_scan(scan_t *sp, db_query_mm_t *mmp)
 }
 
 /* Retrieve the next tuple from the relation. */
-db_int next_scan(scan_t *sp, tuple_t *next_tp, db_query_mm_t *mmp)
+db_int next_scan(scan_t *sp, db_tuple_t *next_tp, db_query_mm_t *mmp)
 {
 	db_int bit_arr_size = ((db_int)(sp->base.header->num_attr)) / 8;
 	if (((db_int)(sp->base.header->num_attr)) % 8 > 0)

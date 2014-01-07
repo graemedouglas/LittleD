@@ -64,7 +64,7 @@ db_int rewind_project(project_t *pp, db_query_mm_t *mmp);
 @brief		Retrieve the next tuple from the projection operator.
 @see		Reference @ref next for documentation.
 */
-db_int next_project(project_t *pp, tuple_t *next_tp, db_query_mm_t *mmp);
+db_int next_project(project_t *pp, db_tuple_t *next_tp, db_query_mm_t *mmp);
 
 /* Close the projection operator. */
 /**

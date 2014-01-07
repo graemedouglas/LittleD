@@ -112,7 +112,7 @@ void setup()
 	db_op_base_t *rootp = parse(command, &mm);
 	Serial.println("Init tuple");
 	Serial.flush();
-	tuple_t tuple;
+	db_tuple_t tuple;
 	init_tuple(&tuple, rootp->header->tuple_size, rootp->header->num_attr, &mm);
 	int count = 0;
 	Serial.println("Execute query");

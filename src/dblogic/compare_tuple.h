@@ -95,8 +95,8 @@ typedef enum
 @returns	@c -1 if @p a comes before @p b, 0 if @p a is equivalent
 		to @p b, and @c 1 if @p a comes after @p b.
 */
-db_int8 cmp_tuple(tuple_t* a,
-		tuple_t* b,
+db_int8 cmp_tuple(db_tuple_t* a,
+		db_tuple_t* b,
 		relation_header_t *hp_a,
 		relation_header_t *hp_b,
 		db_eet_t *order_exprs_a,
@@ -134,8 +134,8 @@ db_int8 cmp_tuple(tuple_t* a,
 @returns	@c -1 if an error occurs, @c 0 if there are no more tuples
 		to return, and @c 1 otherwise.
 */
-db_int next_inorder_tuple(tuple_t *next_tp,
-		tuple_t *previous_tp,
+db_int next_inorder_tuple(db_tuple_t *next_tp,
+		db_tuple_t *previous_tp,
 		db_int *next_count,
 		db_op_base_t *src_op,
 		db_eet_t *order_exprs,
