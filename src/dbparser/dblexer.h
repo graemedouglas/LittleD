@@ -154,6 +154,8 @@ typedef enum db_lexer_token_bcode
 	DB_LEXER_TOKENBCODE_UNIMPORTANT = 0,		/**< Not needed. */
 	DB_LEXER_TOKENBCODE_CLAUSE_CREATE = 1,		/**< @c CREATE
 							     command. */
+	DB_LEXER_TOKENBCODE_CLAUSE_INSERT,		/**< @c INSERT command
+							*/
 	DB_LEXER_TOKENBCODE_CLAUSE_FROM,		/**< @c FROM clause. */
 	DB_LEXER_TOKENBCODE_CLAUSE_WHERE,		/**< @c WHERE clause. */
 	DB_LEXER_TOKENBCODE_CLAUSE_GROUPBY,		/**< @c GROUP @c BY

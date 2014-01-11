@@ -33,6 +33,7 @@ extern "C" {
 #include "dblexer.h"
 #include "dbparseexpr.h"
 #include "dbcreate.h"
+#include "dbinsert.h"
 #include "../db_ctconf.h"
 #if defined(DB_CTCONF_SETTING_TARGET) && DB_CTCONF_SETTING_TARGET == DB_CTCONF_OPTION_TARGET_ARDUINO
 #include "../arduinodebug.h"

@@ -225,7 +225,8 @@ init_dirs:
 
 .PHONY: init-test-db
 init-test-db: $(libs) $(utilexecs)
-	cd $(BIN_UTILS) ; ./gen_test_relations ; ./gen_test_indexes
+	cd $(BIN_TESTS) ; ./../utils/gen_test_relations ; cd ../utils ; ./../utils/gen_test_indexes
+#	cd $(BIN_UTILS) ; ./gen_test_relations ; ./gen_test_indexes
 
 # Build up object dependencies.
 $(testlibs): $(libs)
