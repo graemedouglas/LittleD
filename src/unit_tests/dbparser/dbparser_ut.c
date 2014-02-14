@@ -285,7 +285,7 @@ void testParser_3(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+NTJOIN\n++SCAN\n++NTJOIN\n+++SCAN\n+++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+NTJOIN\n++NTJOIN\n+++SCAN\n+++SCAN\n++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -395,7 +395,7 @@ void testParser_4(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+NTJOIN\n++SCAN\n++NTJOIN\n+++SCAN\n+++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+NTJOIN\n++NTJOIN\n+++SCAN\n+++SCAN\n++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -520,7 +520,7 @@ void testParser_6(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+NTJOIN\n++SCAN\n++NTJOIN\n+++SCAN\n+++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+NTJOIN\n++NTJOIN\n+++SCAN\n+++SCAN\n++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -629,7 +629,7 @@ void testParser_7(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -738,7 +738,7 @@ void testParser_8(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -847,7 +847,7 @@ void testParser_9(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -876,7 +876,7 @@ void testParser_10(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -905,7 +905,7 @@ void testParser_11(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -934,7 +934,7 @@ void testParser_12(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -963,7 +963,7 @@ void testParser_13(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1184,7 +1184,7 @@ void testParser_26(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1271,7 +1271,7 @@ void testParser_30(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1310,7 +1310,7 @@ void testParser_31(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1349,7 +1349,7 @@ void testParser_32(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1384,7 +1384,7 @@ void testParser_33(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1419,7 +1419,7 @@ void testParser_34(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1454,7 +1454,7 @@ void testParser_35(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1489,7 +1489,7 @@ void testParser_36(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }
@@ -1600,7 +1600,7 @@ void testParser_42(CuTest *tc)
 	free(output);
 	queryTreeToString(rootp, &output);
 	puts(output);
-	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++SCAN\n+++NTJOIN\n++++SCAN\n++++SCAN\n", output));
+	CuAssertTrue(tc, 0==strcmp("+SELECT\n++NTJOIN\n+++NTJOIN\n++++SCAN\n++++SCAN\n+++SCAN\n", output));
 	free(output);
 	CuAssertTrue(tc, 1 == closeexecutiontree(rootp, &mm));
 }

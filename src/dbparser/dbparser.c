@@ -664,7 +664,8 @@ db_int parseFrom(db_lexer_t *lexerp, db_op_base_t **rootpp, db_query_mm_t *mmp,
 		}
 		
 		/* Initialize a join for last two scans. */
-		switch (init_ntjoin(joins, NULL, (db_op_base_t*)(&((*tablesp)[(*numtablesp)-2])), (db_op_base_t*)(&((*tablesp)[(*numtablesp)-1])), mmp)) {
+		//switch (init_ntjoin(joins, NULL, (db_op_base_t*)(&((*tablesp)[(*numtablesp)-2])), (db_op_base_t*)(&((*tablesp)[(*numtablesp)-1])), mmp)) {
+		switch (init_ntjoin(joins, NULL, (db_op_base_t*)(&((*tablesp)[0])), (db_op_base_t*)(&((*tablesp)[1])), mmp)) {
 		case 1:
 			break;
 		case 0:
@@ -684,7 +685,7 @@ db_int parseFrom(db_lexer_t *lexerp, db_op_base_t **rootpp, db_query_mm_t *mmp,
 		for (; i < *numtablesp; ++i)
 		{
 			/* Create join for previously created join and next previous scan. */
-			switch (init_ntjoin((&(joins[i-1])), NULL, (db_op_base_t*)(&((*tablesp)[(*numtablesp)-(i+1)])), (db_op_base_t*)(&(joins[i-2])), mmp)) {
+			switch (init_ntjoin((&(joins[i-1])), NULL, (db_op_base_t*)(&(joins[i-2])), (db_op_base_t*)(&((*tablesp)[i])), mmp)) {
 			case 1:
 				break;
 			case 0:
