@@ -50,3 +50,27 @@ for the documentation to be generated. Finally,
 	make clean
 
 deletes all files created at compile time.
+
+Eclipse Setup
+-------------
+
+LittleD can be managed using an Eclipse Makefile project.
+Either the packaged C/C++ Eclipse IDE or the installable CDT package
+must be used.
+
+First make sure that the repository is cloned.
+In Eclipse click **File** -> **Import...**. Within the **Select** window, choose
+under **C/C++** the **Existing Code as Makefile Project** option and click
+**Next**. Give your Eclipse Project a name and browse to the root of the
+project repository to use the code. Choose the correct compiler for your
+system and then click **Finish**.
+
+As noted above, there are a small number of make targets that can be used
+with the project's Makefile. By right clicking the project in the
+**Package Explorer** and selecting **Make Targets** -> **Create...**. Leaving
+all options at the their default, enter the name of the target to add
+(for instance, _tests_) and then click **OK**. You can then run the Make target
+by right clicking on the project in the **Project Explorer** and choosing
+**Make Targets** -> **Build...**. Select the target from the list that appears
+and click **Build**. Finally, you can run individual files with main methods
+by opening them and click the green **Run** button at the top.
