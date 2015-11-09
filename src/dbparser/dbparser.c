@@ -526,6 +526,8 @@ db_int parseFrom(db_lexer_t *lexerp, db_op_base_t **rootpp, db_query_mm_t *mmp,
 				size = tablename_end - tablename_start;
 			char tempstring[size];
 			
+			tempscanp->fname_start	= tablename_start;
+			tempscanp->fname_end	= tablename_end;
 			
 			// TODO: Reduce variable usage with new functions?
 			db_lexer_token_t alias;
@@ -1220,7 +1222,7 @@ db_op_base_t* parse(char* command, db_query_mm_t* mmp)
 	/* Create the clause stack. Top will start at back and move forwards. */
 	struct clausenode *clausestack_bottom = mmp->last_back;
 	struct clausenode *clausestack = db_qmm_balloc(mmp,
-						0);
+						sizeof(struct clausenode));
 	struct clausenode *clausestack_top = clausestack;
 	clausestack->start = -1;	/* Used to flag first clause found. */
 	
@@ -1488,7 +1490,7 @@ db_op_base_t* parse(char* command, db_query_mm_t* mmp)
 					}
 					
 					/* If valid expression, perform setup work for indexing scans. */
-					if (valid)
+					if (1==valid && NULL != val && NULL != relop && NULL != attr)
 					{
 						// TODO: Move this function from osijoin to a better place.
 						db_int8 whichindex = findindexon(tables, attr);

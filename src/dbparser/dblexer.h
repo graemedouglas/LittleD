@@ -105,6 +105,7 @@ typedef enum db_lexer_token_type
 	DB_LEXER_TT_OP,		/**< Operator. */
 	DB_LEXER_TT_FUNC,	/**< Function name. */
 	DB_LEXER_TT_AGGRFUNC,	/**< Aggregate function name. */
+	DB_LEXER_TT_PLACEHOLDER,/**< Placeholders in prepared statements. */
 	DB_LEXER_TT_LPAREN,	/**< Left parenthesis, (. */
 	DB_LEXER_TT_RPAREN,	/**< Right parenthesis, ).*/
 	DB_LEXER_TT_IDENTCONJ,	/**< Identifier conjugation, namely '.' in A.b

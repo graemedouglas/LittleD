@@ -110,6 +110,9 @@ typedef struct {
 	db_int		start;		/**< First character of tables name. */
 	db_int		end;		/**< First character following tables
 					     name. */
+	db_int		fname_start;	/**< First character in relation name.*/
+	db_int		fname_end;	/**< First character following
+					     relation name. */
 	long		tuple_start;	/**< Offset of first tuple record. */
 	db_index_meta_t	idx_meta_data;	/**< File containing metadata for
 					     index. */

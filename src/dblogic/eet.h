@@ -107,6 +107,7 @@ typedef enum
 	DB_EETNODE_LPAREN,		/**< Left parenthesis. */
 	DB_EETNODE_RPAREN,		/**< Right parenthesis. */
 	DB_EETNODE_COMMA,		/**< Comma. */
+	DB_EETNODE_PLACEHOLDER,		/**< Prepared statement placeholder. */
 	DB_EETNODE_COUNT		/**< Total number of types. */
 } db_eetnode_type;
 
@@ -264,6 +265,21 @@ typedef struct
 	char* string;		/**< The string pointer. */
 	/*@}*/
 } db_eetnode_dbstring_t;
+
+/* Extended prepared statement placeholder node type. */
+/**
+@struct		db_eetnode_placeholder-t
+@brief		Stores data pertaining to placeholders in prepared statements.
+@details	This is produced by the parser and must be handled by the query
+		compiler, or possibly the expression evaluator, to properly
+		substitute in the correct value.
+*/
+typedef struct
+{
+	db_eetnode_t	base;			/**< Supertype. */
+	db_uint8	placeholdertype;	/**< Eventual node type. */
+	db_int		offset;			/**< Offset in query string. */
+} db_eetnode_placeholder_t;
 
 /* Construct a new relation header an array of attribute positions. */
 /**

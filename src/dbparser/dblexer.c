@@ -233,7 +233,7 @@ db_int getkeywordbcode(struct keyword *array, db_int idx)
 }
 
 //TODO
-/**************** USeful debugging function that should go if not needed. *****/
+/**************** Useful debugging function that should go if not needed. *****/
 /**
 @brief		Print the contents of a token.
 @param		tokenp		A pointer to the token variable to print.
@@ -252,7 +252,7 @@ void printtoken(db_lexer_token_t *tokenp, db_lexer_t *lexerp)
 	puts("");
 	fflush(stdout);
 }
-/**************** USeful debugging function that should go if not needed. *****/
+/**************** Useful debugging function that should go if not needed. *****/
 
 /**
 @brief		A string length function.
@@ -775,6 +775,11 @@ void settoken(db_lexer_token_t *tokenp, db_uint8 type, db_int which, db_int star
 			tokenp->info = DB_LEXER_TOKENINFO_UNIMPORTANT;
 			tokenp->bcode = (db_uint8)DB_EETNODE_COMMA;
 		}
+		else if ((db_uint8)DB_LEXER_TT_PLACEHOLDER == type)
+		{
+			tokenp->info	= DB_LEXER_TOKENINFO_UNIMPORTANT;
+			tokenp->bcode	= DB_EETNODE_PLACEHOLDER; 
+		}
 		else
 		{
 			tokenp->info = -2;
@@ -791,10 +796,10 @@ void settoken(db_lexer_token_t *tokenp, db_uint8 type, db_int which, db_int star
 /* Initialize the lexer */
 void lexer_init(db_lexer_t *lexerp, char* command)
 {
-	lexerp->command = command;
-	lexerp->length = strlength(command);
+	lexerp->command		= command;
+	lexerp->length 		= strlength(command);
 	/* Set initial offset to 0, the beginning of the command string. */
-	lexerp->offset = 0;
+	lexerp->offset 		= 0;
 }
 
 /* Lex function */
@@ -856,6 +861,40 @@ db_int lexer_next(db_lexer_t *lexerp)
 				{
 					settoken(&newtoken, DB_LEXER_TT_COMMA,
 						0, -1, lexerp->offset);
+					done = 1;
+				}
+				else if (tchar == '?')
+				{
+					settoken(
+						&newtoken,
+						DB_LEXER_TT_PLACEHOLDER,
+						0,
+						-1,
+						lexerp->offset
+					);
+					if (1==nextchar(lexerp, &tchar))
+					{
+						if ('i' == tounicase(tchar))
+						{
+							newtoken.info
+								= DB_EETNODE_CONST_DBINT;
+						}
+						else if ('s' == tounicase(tchar))
+						{
+							newtoken.info
+								= DB_EETNODE_CONST_DBSTRING;
+						}
+						else
+						{
+							DB_ERROR_MESSAGE("incorrect placeholder type", lexerp->offset, lexerp->command);
+							return -1;
+						}
+					}
+					else
+					{
+						DB_ERROR_MESSAGE("incorrect placeholder type", lexerp->offset, lexerp->command);
+						return -1;
+					}
 					done = 1;
 				}
 				else if (isdigit_(tchar))

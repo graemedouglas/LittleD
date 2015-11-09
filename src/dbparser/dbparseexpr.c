@@ -207,7 +207,7 @@ db_int parseexpression(db_eetnode_t **exprp, db_lexer_t *lexerp, db_int start,
 			
 			/* Build the node! */
 			newnodep->base.type = DB_EETNODE_CONST_DBINT;
-			char temp[gettokenlength(&(lexerp->token))];
+			char temp[gettokenlength(&(lexerp->token))+1];
 			gettokenstring(&(lexerp->token), temp, lexerp);
 			newnodep->integer = atoi(temp);	// TODO: Better way to do this?  Maybe without using library?
 			lasttype = DB_EETNODE_CONST_DBINT;
@@ -227,6 +227,21 @@ db_int parseexpression(db_eetnode_t **exprp, db_lexer_t *lexerp, db_int start,
 			newnodep->base.type = DB_EETNODE_CONST_DBSTRING;
 			newnodep->string = (char*)(lexerp->token.start-1);
 			lasttype = DB_EETNODE_CONST_DBSTRING;
+		}
+		else if ((db_uint8)DB_LEXER_TT_PLACEHOLDER == lexerp->token.type)
+		{
+			if (1 != db_qmm_fextend(mmp, sizeof(db_eetnode_placeholder_t)))
+			{
+				return -1;
+			}
+			db_eetnode_placeholder_t *newnodep = POINTERATNBYTES(*exprp, size, db_eetnode_placeholder_t*);
+			size+=sizeof(db_eetnode_placeholder_t);
+			
+			/* Build the node! */
+			newnodep->base.type = DB_EETNODE_PLACEHOLDER;
+			newnodep->placeholdertype	= lexerp->token.info;
+			newnodep->offset		= lexerp->token.end;
+			lasttype = DB_EETNODE_PLACEHOLDER;
 		}
 		else if ((db_uint8)DB_LEXER_TT_IDENT == lexerp->token.type)
 		{
@@ -578,7 +593,7 @@ db_int setupattribute(db_eetnode_attr_t *attrnodep, db_lexer_t *lexerp, db_op_ba
 		if (1 == attrnodep->pos)
 		{
 			gettokenat(&temptoken, *lexerp, attrnodep->tokenstart, 0);
-			char attrname[gettokenlength(&temptoken)];
+			char attrname[gettokenlength(&temptoken)+1];
 			gettokenstring(&temptoken, attrname, lexerp);
 			
 			db_int count = 0;
@@ -625,7 +640,7 @@ db_int setupattribute(db_eetnode_attr_t *attrnodep, db_lexer_t *lexerp, db_op_ba
 		   be actual start of attr name token! */
 		
 		gettokenat(&temptoken, *lexerp, attrnodep->tokenstart, 0);
-		char attrname[gettokenlength(&temptoken)];
+		char attrname[gettokenlength(&temptoken)+1];
 		gettokenstring(&temptoken, attrname, lexerp);
 		
 		db_int retval = getposbyname(evalpoint->header, attrname);
