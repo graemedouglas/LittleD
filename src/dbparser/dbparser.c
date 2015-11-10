@@ -1221,10 +1221,8 @@ db_op_base_t* parse(char* command, db_query_mm_t* mmp)
 	
 	/* Create the clause stack. Top will start at back and move forwards. */
 	struct clausenode *clausestack_bottom = mmp->last_back;
-	struct clausenode *clausestack = db_qmm_balloc(mmp,
-						sizeof(struct clausenode));
+	struct clausenode *clausestack = db_qmm_balloc(mmp, 0);
 	struct clausenode *clausestack_top = clausestack;
-	clausestack->start = -1;	/* Used to flag first clause found. */
 	
 	/* Create and initialize the lexer. */
 	db_lexer_t lexer;
