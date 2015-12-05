@@ -1,10 +1,87 @@
 LittleD
 =======
 
-A relational database for embedded devices and sensors nodes.
+Hi there! You may be interested in a sister project, [IonDB - A key-value store for embedded devices](https://github.com/iondbproject/iondb).
 
-Introduction
-------------
+"What is this?"
+---------------
+
+LittleD is a relational database for microprocessor devices, using as little
+as 1kB of RAM for most queries. LittleD supports
+SELECT-FROM-WHERE syntax, including inner joins, projections, and selections
+over arbitrary expressions. LittleD also has support for CREATE TABLE and
+INSERT statements. Only integers and fixed-width strings are supported
+at this time. In the future, query pre-compilation, network transmission,
+network relational operators, aggregation, and improved indexing
+are hoped to be implemented.
+
+If you are interested in the design of LittleD, you might want to check out
+my published research: [here](http://dl.acm.org/citation.cfm?id=2554891) or
+[here](https://people.ok.ubc.ca/rlawrenc/research/Papers/LittleD.pdf).
+
+Show me some code!
+------------------
+
+Sure!
+    
+```c
+    #include "Littled/dbparser/dbparser.h"
+    
+    #define BYTES_LEN 400
+    
+    int main(void)
+    {
+        char          memseg[BYTES_LEN];
+        db_query_mm_t mm;
+        db_op_base_t* root;
+        db_tuple_t    tuple;
+
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("CREATE TABLE sensors (id int, temp int);", &mm);
+
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (1, 221);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (2, 89884);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (3, 112);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (4, 455);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (5, 3313);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (6, 11);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (7, 99996);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (8, 6565);", &mm);
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        parse("INSERT INTO sensors VALUES (9, 6565);", &mm);
+    
+        init_query_mm(&mm, memseg, BYTES_LEN);
+        root = parse("SELECT * FROM sensors;", &mm);
+        if (root == NULL)
+        {
+            printf("NULL root\n");
+        }
+        else
+        {
+            init_tuple(&tuple, root->header->tuple_size, root->header->num_attr, &mm);
+
+            while (next(root, &tuple, &mm) == 1) 
+            {
+                int id = getintbyname(&tuple, "id", root->header);
+                int sensor_val = getintbyname(&tuple, "temp", root->header);;
+                printf("sensor val: %i (%i)\n", sensor_val, id);
+            }
+        }
+
+        return 0;
+    }
+```
+
+Detailed Summary
+----------------
 
 LittleD provides a SQL frontend to manage data under the relational model.
 This project targets devices of about the same capabilities as the Arduino
@@ -74,3 +151,9 @@ by right clicking on the project in the **Project Explorer** and choosing
 **Make Targets** -> **Build...**. Select the target from the list that appears
 and click **Build**. Finally, you can run individual files with main methods
 by opening them and click the green **Run** button at the top.
+
+Can I contribute?
+-----------------
+
+Absolutely! Contributions are welcome! Please make pull requests off the master
+branch.
