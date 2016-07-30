@@ -22,6 +22,7 @@
 //*****************************************************************************
 
 #include "cfs_init_test_relations.h"
+#include "debug.h"
 
 db_int integerlength(db_int value)
 {
@@ -151,7 +152,7 @@ db_int init_cfs_test_relations(char *relationname, db_int numattr,
 	cfs_fd = cfs_open(relationname, CFS_WRITE);
 	if (0 > cfs_fd)
 	{
-		printf("Could not open file for writing.\n");
+		PRINTF("Could not open file for writing.\n");
 		return -1;
 	}
 	

@@ -23,6 +23,7 @@
 /*****************************************************************************/
 
 #include "gen_bench_relations.h"
+#include "debug.h"
 
 db_int integerlength(db_int value)
 {
@@ -63,7 +64,7 @@ db_int gen_bench_relation(char *relationname, db_int numattr,
 	myfile = db_openwritefile(relationname);
 	if (0 > myfile)
 	{
-		printf("Could not open file for writing.\n");
+		PRINTF("Could not open file for writing.\n");
 		return -1;
 	}
 	
