@@ -32,11 +32,20 @@ BIN_UTILS := $(BIN)/utils
 INCLUDES  := $(SRC)/include
 DOC       := doc
 
+# Build options
+ENABLE_DEBUG ?= true
+
 # Compiler options
 GCC           =  gcc
 CC            =  $(GCC)
 CFLAGS        := $(CFLAGS) -Wall -g
+DFLAGS        := 
 OUTPUT_OPTION =  -o $@
+
+ifeq ($(ENABLE_DEBUG),true)
+ DFLAGS += -DENABLE_DEBUG 
+endif
+
 ################################################################################
 
 ## Functions ###################################################################
@@ -50,7 +59,7 @@ endef
 define gen-lib-rule
  $(call transform-csource,$1,$(BIN_LIB)/,.o): $1 $(subst .c,.h,$1)
 	$$(call make-depend,$$<, $$@, $$(subst .o,.d,$$@))
-	$(COMPILE.c) $$< $(includes) $(CFLAGS) -o $$@
+	$(COMPILE.c) $$< $(includes) $(CFLAGS) $(DFLAGS) -o $$@
 endef
 
 # Generate a single library compilation rule.
@@ -58,7 +67,7 @@ endef
 define gen-testlib-rule
  $(call transform-csource,$1,$(BIN_TESTS)/,.o): $1
 	$$(call make-depend,$$<, $$@, $$(subst .o,.d,$$@))
-	$(COMPILE.c) $$< $(includes) $(CFLAGS) -o $$@
+	$(COMPILE.c) $$< $(includes) $(CFLAGS) $(DFLAGS) -o $$@
 endef
 
 # $(call transform-csource,$(subst run_,,$1),$(BIN_TEST)/,): $1
@@ -67,7 +76,7 @@ endef
 define gen-test-rule
  $(call transform-csource,$1,$(BIN_TESTS)/,): $1
 	$$(call make-depend,$$<, $$@, $$(addsuffix .d,$$@))
-	$(CC) $(includes) $(CFLAGS) -o $$@ $$< $(libs) $(testlibs)
+	$(CC) $(includes) $(CFLAGS) $(DFLAGS) -o $$@ $$< $(libs) $(testlibs)
 endef
 
 # Generate a single library compilation rule.
@@ -75,7 +84,7 @@ endef
 define gen-util-rule
  $(call transform-csource,$1,$(BIN_UTILS)/,): $1
 	$$(call make-depend,$$<, $$@, $$(addsuffix .d,$$@))
-	$(CC) $(includes) $(CFLAGS) -o $$@ $$< $(libs)
+	$(CC) $(includes) $(CFLAGS) $(DFLAGS) -o $$@ $$< $(libs)
 endef
 
 # If this doesn't work, an ugly SED-based solution is required.
@@ -87,6 +96,7 @@ $(GCC)	-MM                     \
         -MT $2                  \
         $(includes)             \
         $(CFLAGS)               \
+        $(DFLAGS)               \
         $(CPPFLAGS)             \
         $(TARGET_ARCH)          \
         $1
