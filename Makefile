@@ -29,13 +29,23 @@ BIN       := bin
 BIN_LIB   := $(BIN)/lib
 BIN_TESTS := $(BIN)/tests
 BIN_UTILS := $(BIN)/utils
+INCLUDES  := $(SRC)/include
 DOC       := doc
+
+# Build options
+ENABLE_DEBUG ?= true
 
 # Compiler options
 GCC           =  gcc
 CC            =  $(GCC)
 CFLAGS        := $(CFLAGS) -Wall -g
+DFLAGS        := 
 OUTPUT_OPTION =  -o $@
+
+ifeq ($(ENABLE_DEBUG),true)
+ DFLAGS += -DENABLE_DEBUG 
+endif
+
 ################################################################################
 
 ## Functions ###################################################################
@@ -49,7 +59,7 @@ endef
 define gen-lib-rule
  $(call transform-csource,$1,$(BIN_LIB)/,.o): $1 $(subst .c,.h,$1)
 	$$(call make-depend,$$<, $$@, $$(subst .o,.d,$$@))
-	$(COMPILE.c) $$< $(CFLAGS) -o $$@
+	$(COMPILE.c) $$< $(includes) $(CFLAGS) $(DFLAGS) -o $$@
 endef
 
 # Generate a single library compilation rule.
@@ -57,7 +67,7 @@ endef
 define gen-testlib-rule
  $(call transform-csource,$1,$(BIN_TESTS)/,.o): $1
 	$$(call make-depend,$$<, $$@, $$(subst .o,.d,$$@))
-	$(COMPILE.c) $$< $(CFLAGS) -o $$@
+	$(COMPILE.c) $$< $(includes) $(CFLAGS) $(DFLAGS) -o $$@
 endef
 
 # $(call transform-csource,$(subst run_,,$1),$(BIN_TEST)/,): $1
@@ -66,7 +76,7 @@ endef
 define gen-test-rule
  $(call transform-csource,$1,$(BIN_TESTS)/,): $1
 	$$(call make-depend,$$<, $$@, $$(addsuffix .d,$$@))
-	$(CC) $(CFLAGS) -o $$@ $$< $(libs) $(testlibs)
+	$(CC) $(includes) $(CFLAGS) $(DFLAGS) -o $$@ $$< $(libs) $(testlibs)
 endef
 
 # Generate a single library compilation rule.
@@ -74,7 +84,7 @@ endef
 define gen-util-rule
  $(call transform-csource,$1,$(BIN_UTILS)/,): $1
 	$$(call make-depend,$$<, $$@, $$(addsuffix .d,$$@))
-	$(CC) $(CFLAGS) -o $$@ $$< $(libs)
+	$(CC) $(includes) $(CFLAGS) $(DFLAGS) -o $$@ $$< $(libs)
 endef
 
 # If this doesn't work, an ugly SED-based solution is required.
@@ -84,7 +94,9 @@ $(GCC)	-MM                     \
         -MF $3                  \
         -MP                     \
         -MT $2                  \
+        $(includes)             \
         $(CFLAGS)               \
+        $(DFLAGS)               \
         $(CPPFLAGS)             \
         $(TARGET_ARCH)          \
         $1
@@ -122,6 +134,9 @@ libsources :=  $(SRC)/dbobjects/relation.c \
                $(SRC)/dbparser/dbcreate.c \
                $(SRC)/dbparser/dbinsert.c \
                $(SRC)/dbparser/dbparser.c
+
+# Generate a list of include directories
+includes := $(addprefix -I,$(INCLUDES))
 
 # Generate list of libraries to compile.
 libs        := $(addprefix $(BIN_LIB)/,$(subst .c,.o,$(notdir $(libsources))))

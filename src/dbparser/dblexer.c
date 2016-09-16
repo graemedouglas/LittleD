@@ -22,6 +22,7 @@
 /******************************************************************************/
 
 #include "dblexer.h"
+#include "debug.h"
 
 /*** Macros for Lexer modes ***/
 /**
@@ -245,7 +246,7 @@ void printtoken(db_lexer_token_t *tokenp, db_lexer_t *lexerp)
 	db_int i = tokenp->start;
 	while (i < tokenp->end && lexerp->command[i] != '\0')
 	{
-		printf("%c", lexerp->command[i]);
+		PRINTF("%c", lexerp->command[i]);
 		fflush(stdout);
 		++i;
 	}

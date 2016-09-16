@@ -22,6 +22,7 @@
 /******************************************************************************/
 
 #include "query_output.h"
+#include "debug.h"
 
 #if 0
 void* calloc(int num, int size)
@@ -86,7 +87,7 @@ db_int sizeQuery(db_op_base_t *op, db_tuple_t *next_t, db_query_mm_t *mmp)
 void printQuery(db_op_base_t *op, db_query_mm_t *mmp)
 {
 	char *output = formatQuery(op, mmp);
-	printf("%s\n", output);
+	PRINTF("%s\n", output);
 	free(output);
 }
 
@@ -159,7 +160,7 @@ char* formatQuery(db_op_base_t *op, db_query_mm_t *mmp)
 
 void printTuple(db_tuple_t *toprint, db_op_base_t *op, db_int *widths)
 {
-	printf("%s\n", formatTuple(toprint, op, widths));
+	PRINTF("%s\n", formatTuple(toprint, op, widths));
 }
 
 char* formatTuple(db_tuple_t *toprint, db_op_base_t *op, db_int *widths)
@@ -199,7 +200,7 @@ char* formatTuple(db_tuple_t *toprint, db_op_base_t *op, db_int *widths)
 /* Print a formatted row separator. */
 void printRowSeparator(db_op_base_t *op, db_int *widths)
 {
-	printf("%s\n", formatRowSeparator(op, widths));
+	PRINTF("%s\n", formatRowSeparator(op, widths));
 }
 
 /* Make a row separator. */
